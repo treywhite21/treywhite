@@ -8,9 +8,8 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
-  TwitterIcon,
+  SubstackIcon,
 } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
@@ -99,10 +98,15 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+function SocialLink({ icon: Icon, size, ...props }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+      <Icon
+        className={clsx(
+          'fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300',
+          size === 'sm' ? 'ml-1 mt-1 h-5 w-5' : 'h-6 w-6'
+        )}
+      />
     </Link>
   )
 }
@@ -265,28 +269,25 @@ export default function Home({ articles }) {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Trey, a software engineer and entrepreneur based in San Diego.
-            I’m the co-founder and CTO of REI Copilot, where we help people
-            reach financial freedom by super-charging their real estate
-            investing portfolio with modern technology.
+            I'm a software engineer for Google working to make it easier for
+            creators to get paid. I’m also the co-founder and CTO of REI Copilot
+            helping people reach financial freedom by super-charging their real
+            estate investing portfolio with modern technology.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
+              href="https://mememail.substack.com/"
+              aria-label="Follow on Substack"
+              icon={SubstackIcon}
+              size="sm"
             />
             <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com"
+              href="https://github.com/treywhite21"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/whitepr/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
