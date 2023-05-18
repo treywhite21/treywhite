@@ -11,10 +11,10 @@ import {
   LinkedInIcon,
   SubstackIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoDeloitte from '@/images/logos/deloitte.png'
+import logoReiCopilot from '@/images/logos/rei-copilot.svg'
+import logoMicrosoft from '@/images/logos/microsoft.svg'
+import logoGoogle from '@/images/logos/google.svg'
 import image1 from '@/images/photos/image-1.jpeg'
 import image2 from '@/images/photos/image-2.jpeg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -143,35 +143,38 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Google',
+      title: 'Software Engineer III',
+      logo: logoGoogle,
+      start: '2022',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Microsoft',
+      title: 'Software Engineer II',
+      logo: logoMicrosoft,
+      start: '2020',
+      end: '2022',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      company: 'REI Copilot',
+      title: 'Co-Founder, CTO',
+      logo: logoReiCopilot,
+      start: '2018',
+      end: {
+        label: 'Present',
+        dateTime: new Date().getFullYear(),
+      },
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Deloitte',
+      title: 'Technology Consultant',
+      logo: logoDeloitte,
+      start: '2015',
+      end: '2018',
     },
   ]
 
@@ -185,7 +188,12 @@ function Resume() {
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+              <Image
+                src={role.logo}
+                alt=""
+                className="h-7 w-7 rounded-full"
+                unoptimized
+              />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
