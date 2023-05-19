@@ -86,23 +86,22 @@ function ArrowDownIcon(props) {
 function Article({ article }) {
   return (
     <Card as="article">
+      <Card.Title href={`/articles/${article.slug}`}>
+        {article.title}
+      </Card.Title>
+      <Card.Eyebrow as="time" dateTime={article.pubDate} decorate>
+        {article.date}
+      </Card.Eyebrow>
       <div className="flex justify-between">
-        <div>
-          <Card.Title href={`/articles/${article.slug}`}>
-            {article.title}
-          </Card.Title>
-          <Card.Eyebrow as="time" dateTime={article.pubDate} decorate>
-            {article.date}
-          </Card.Eyebrow>
+        <div className="pr-6">
+          <Card.Description>{article.blurb}</Card.Description>
           <Card.Cta>Read article</Card.Cta>
         </div>
-        <Card.Description>
-          <img
-            src={article.enclosure.link}
-            alt={article.slug}
-            className="h-20 w-20"
-          />
-        </Card.Description>
+        <img
+          src={article.enclosure.link}
+          alt={article.slug}
+          className="h-32 w-32 rounded-lg"
+        />
       </div>
     </Card>
   )
