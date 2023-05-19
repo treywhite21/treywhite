@@ -38,15 +38,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>Articles - Spencer Sharp</title>
+        <title>Articles - Trey White</title>
         <meta
           name="description"
-          content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+          content="A collection of stupid jokes, dumb memes, and insights from the day before... if you can even call them that."
         />
       </Head>
       <SimpleLayout
-        title="Writing on software design, company building, and the aerospace industry."
-        intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        title="A collection of stupid jokes, dumb memes, and insights from the day before... if you can even call them that."
+        intro="In February of 2019, one of my best friends, Emma, and her family were caught off guard by an extremely painful and unforeseen event. The pain we watched them endure was unbearable. We decided the least we could do was send some jokes, memes, and whatever else every morning to, hopefully, help start her day off on a lighter note or, at least, serve as a distraction. Thus, Emma's Morning Wakeup."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">

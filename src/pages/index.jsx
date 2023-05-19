@@ -22,7 +22,7 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
+import { getSubstackFeed } from '@/lib/getSubstackFeed'
 
 function MailIcon(props) {
   return (
@@ -86,14 +86,24 @@ function ArrowDownIcon(props) {
 function Article({ article }) {
   return (
     <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <div className="flex justify-between">
+        <div>
+          <Card.Title href={`/articles/${article.slug}`}>
+            {article.title}
+          </Card.Title>
+          <Card.Eyebrow as="time" dateTime={article.pubDate} decorate>
+            {article.date}
+          </Card.Eyebrow>
+          <Card.Cta>Read article</Card.Cta>
+        </div>
+        <Card.Description>
+          <img
+            src={article.enclosure.link}
+            alt={article.slug}
+            className="h-20 w-20"
+          />
+        </Card.Description>
+      </div>
     </Card>
   )
 }
@@ -265,6 +275,7 @@ function Photos() {
 }
 
 export default function Home({ articles }) {
+  console.log({ articles })
   return (
     <>
       <Head>
@@ -313,7 +324,7 @@ export default function Home({ articles }) {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <Article key={article.guid} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
@@ -333,7 +344,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      articles: (await getAllArticles())
+      articles: (await getSubstackFeed())
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },
