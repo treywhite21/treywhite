@@ -41,10 +41,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Spencer Sharp</title>
+        <title>About - Trey White</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="I’m Trey White. I live in San Diego, where I try to build cool stuff that makes peoples' lives easier."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
