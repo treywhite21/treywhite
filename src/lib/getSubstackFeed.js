@@ -21,7 +21,7 @@ const getBlurb = (str) => {
 export async function getSubstackFeed() {
   try {
     const substackRes = await axios.get(rssToJsonApi, data)
-    console.log('Substack feed successfully retrieved', substackRes)
+    // console.log('Substack feed successfully retrieved', substackRes)
 
     return substackRes.data.items.map((article) => ({
       ...article,

@@ -4,7 +4,7 @@ export async function getSubstackPost(slug) {
   try {
     const feed = await getSubstackFeed()
     const posts = feed.filter((post) => post.slug === slug)
-    console.log({ posts })
+    // console.log('Substack post successfully retrieved' posts)
 
     return posts.length ? posts[0] : null
   } catch (err) {

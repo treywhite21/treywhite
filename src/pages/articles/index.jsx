@@ -2,8 +2,7 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { formatDate } from '@/lib/formatDate'
-import { getAllArticles } from '@/lib/getAllArticles'
+import { getSubstackFeed } from '@/lib/getSubstackFeed'
 
 function Article({ article }) {
   return (
@@ -18,17 +17,26 @@ function Article({ article }) {
           className="md:hidden"
           decorate
         >
-          {formatDate(article.date)}
+          {article.date}
         </Card.Eyebrow>
-        <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>Read article</Card.Cta>
+        <div className="flex justify-between">
+          <div className="pr-6">
+            <Card.Description>{article.blurb}</Card.Description>
+            <Card.Cta>Read article</Card.Cta>
+          </div>
+          <img
+            src={article.enclosure.link}
+            alt={article.slug}
+            className="h-32 w-32 rounded-lg"
+          />
+        </div>
       </Card>
       <Card.Eyebrow
         as="time"
         dateTime={article.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(article.date)}
+        {article.date}
       </Card.Eyebrow>
     </article>
   )
@@ -63,7 +71,7 @@ export default function ArticlesIndex({ articles }) {
 export async function getStaticProps() {
   return {
     props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      articles: (await getSubstackFeed()).map(({ component, ...meta }) => meta),
     },
   }
 }
