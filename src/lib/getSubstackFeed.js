@@ -2,7 +2,14 @@ import axios from 'axios'
 
 const substackRssFeed = 'https://mememail.substack.com/feed'
 const rssToJsonApi = 'https://api.rss2json.com/v1/api.json'
-const data = { params: { rss_url: substackRssFeed } }
+const data = {
+  headers: {
+    'Cache-Control': 'no-cache',
+    Pragma: 'no-cache',
+    Expires: '0',
+  },
+  params: { rss_url: substackRssFeed },
+}
 
 const getBlurb = (str) => {
   // Clean string of html tags and line break characters
