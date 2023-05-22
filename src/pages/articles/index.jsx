@@ -20,7 +20,7 @@ function Article({ article }) {
           {article.date}
         </Card.Eyebrow>
         <div className="flex justify-between">
-          <div className="pr-6">
+          <div className="overflow-hidden pr-6">
             <Card.Description>{article.blurb}</Card.Description>
             <Card.Cta>Read article</Card.Cta>
           </div>
