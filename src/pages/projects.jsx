@@ -3,47 +3,42 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoRealNumberz from '@/images/logos/real-numberz.png'
+import logoNpm from '@/images/logos/npm.svg'
+import logoDoneDeal from '@/images/logos/done-deal.svg'
+import logoReiCopilot from '@/images/logos/rei-copilot.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'REI Copilot',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'Real estate investing portfolio management app. Tracking, analysis, organization, alerting, and much more for real estate investors.',
+    link: { href: 'https://reicopilot.com', label: 'reicopilot.com' },
+    logo: logoReiCopilot,
   },
   {
-    name: 'Animaginary',
+    name: 'Done Deal',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Application for analyzing and evaluating potential real estate deals using creative financing.',
+    link: { href: 'https://done-deal.vercel.app', label: 'done-deal.app' },
+    logo: logoDoneDeal,
   },
   {
-    name: 'HelioStream',
+    name: 'TVM Calculator',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      "Open-source financial calculator library written in JavaScript. Since, amazingly, there wasn't one out there already.",
+    link: {
+      href: 'https://www.npmjs.com/package/tvm-calculator',
+      label: 'npmjs.com',
+    },
+    logo: logoNpm,
   },
   {
-    name: 'cosmOS',
+    name: 'RealNumberz',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'Original version of REI Copilot. Now deprecated, but some users prefer the old stuff.',
+    link: { href: 'https://www.realnumberz.com/', label: 'realnumberz.com' },
+    logo: logoRealNumberz,
   },
 ]
 
@@ -62,15 +57,15 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Spencer Sharp</title>
+        <title>Projects - Trey White</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Things I've built trying to make life easier."
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title="Things I've built trying to make life easier."
+        intro="I've worked on tons of little projects over the years, but these are the ones that people actually use. If you see something that piques your interest, holler at me. I'm always looking for ways to improve them."
       >
         <ul
           role="list"
@@ -82,12 +77,14 @@ export default function Projects() {
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-8 w-8"
+                  className="h-8 w-8 rounded-full"
                   unoptimized
                 />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+                <Card.Link href={project.link.href} target="_blank">
+                  {project.name}
+                </Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
               <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
