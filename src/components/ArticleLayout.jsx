@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
-import { formatDate } from '@/lib/formatDate'
 
 function ArrowLeftIcon(props) {
   return (

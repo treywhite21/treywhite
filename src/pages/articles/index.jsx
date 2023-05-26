@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getSubstackFeed } from '@/lib/getSubstackFeed'
+import { Button } from '@/components/Button'
 
 function Article({ article }) {
   return (
@@ -27,7 +28,7 @@ function Article({ article }) {
           <img
             src={article.enclosure.link}
             alt={article.slug}
-            className="h-32 w-32 rounded-lg"
+            className="z-10 h-32 w-32 rounded-lg"
           />
         </div>
       </Card>
@@ -62,6 +63,16 @@ export default function ArticlesIndex({ articles }) {
               <Article key={article.slug} article={article} />
             ))}
           </div>
+        </div>
+        <div className="mt-16 inline-flex w-full justify-center">
+          <Button
+            href="https://mememail.substack.com"
+            className="justify-center !bg-transparent px-16 hover:!bg-zinc-50 dark:!bg-transparent hover:dark:!bg-zinc-800/50"
+            variant="secondary"
+            target="_blank"
+          >
+            Read more on Substack
+          </Button>
         </div>
       </SimpleLayout>
     </>
