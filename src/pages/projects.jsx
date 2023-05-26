@@ -7,6 +7,7 @@ import logoRealNumberz from '@/images/logos/real-numberz.png'
 import logoNpm from '@/images/logos/npm.svg'
 import logoDoneDeal from '@/images/logos/done-deal.svg'
 import logoReiCopilot from '@/images/logos/rei-copilot.svg'
+import logoRealDeals from '@/images/logos/real-deals.png'
 
 const projects = [
   {
@@ -36,9 +37,19 @@ const projects = [
   {
     name: 'RealNumberz',
     description:
-      'Original version of REI Copilot. Now deprecated, but some users prefer the old stuff.',
+      'This is the original version of REI Copilot. Now deprecated, but some users prefer the old stuff.',
     link: { href: 'https://www.realnumberz.com/', label: 'realnumberz.com' },
     logo: logoRealNumberz,
+  },
+  {
+    name: 'Real Deals',
+    description:
+      'Two-sided marketplace for real estate investment deals. Users can either post an investment opportunity or offer funding for an available deal.',
+    link: {
+      href: 'https://rei-marketplace.web.app/',
+      label: 'reimarketplace.app',
+    },
+    logo: logoRealDeals,
   },
 ]
 
