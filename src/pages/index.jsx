@@ -21,6 +21,7 @@ import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 import { getSubstackFeed } from '@/lib/getSubstackFeed'
+import { SubstackLink } from '@/components/SubstackLink'
 
 function MailIcon(props) {
   return (
@@ -98,7 +99,7 @@ function Article({ article }) {
         <img
           src={article.enclosure.link}
           alt={article.slug}
-          className="h-32 w-32 rounded-lg"
+          className="z-10 h-32 w-32 rounded-lg"
         />
       </div>
     </Card>
@@ -126,21 +127,22 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Straight to Your Inbox</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
+        If you enjoy these articles but hate having to come to this website,
+        visit my Substack page and subscribe. You'll receive the articles via
+        email on the mornings they're posted.
       </p>
       <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
+        <Button
+          type="submit"
+          className="group w-full"
+          href="https://mememail.substack.com/"
+          variant="secondary"
+          target="_blank"
+        >
+          Subscribe
         </Button>
       </div>
     </form>
@@ -326,6 +328,14 @@ export default function Home({ articles }) {
             {articles.map((article) => (
               <Article key={article.guid} article={article} />
             ))}
+            <Button
+              href="https://mememail.substack.com"
+              className="justify-center bg-transparent hover:bg-zinc-50 dark:bg-transparent hover:dark:bg-zinc-800/50"
+              variant="secondary"
+              target="_blank"
+            >
+              Read more on Substack
+            </Button>
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
